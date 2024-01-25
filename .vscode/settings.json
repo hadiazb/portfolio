@@ -1,3 +1,12 @@
 {
-	"cSpell.words": ["Bernal", "Diaz"]
+	"cSpell.words": [
+		"Bernal",
+		"Diaz",
+		"focusring",
+		"necolas",
+		"reduxjs",
+		"tailwindcss",
+		"webfonts"
+	],
+	"editor.formatOnSave": true
 }
