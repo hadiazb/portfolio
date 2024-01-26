@@ -4,17 +4,41 @@
 		"es2021": true
 	},
 	"root": true,
-	"extends": ["next/core-web-vitals"],
+	"extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+	"plugins": ["@typescript-eslint", "react-hooks"],
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"rules": {
+		"react/prop-types": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/no-empty-function": [
+			"error",
+			{
+				"allow": ["arrowFunctions"]
+			}
+		],
 		"no-console": [
 			"warn",
 			{
 				"allow": ["error"]
 			}
 		]
-	}
+	},
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"rules": {
+				"@typescript-eslint/explicit-function-return-type": [
+					"error",
+					{
+						"allowExpressions": true
+					}
+				]
+			}
+		}
+	]
 }

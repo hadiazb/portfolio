@@ -1,0 +1,6 @@
+export { default as Tabs } from './Tabs'
+export { default as Tab } from './Tab'
+export { default as Box } from './Box'
+export { default as Divider } from './Divider'
+export { default as Typography } from './Typography'
+export { default as IconButton } from './IconButton'

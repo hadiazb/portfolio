@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { ThemeProvider } from '@mui/material/styles'
 
 import '@/infrastructure/ui/styles/globals.css'
 
-import { FullCtr } from '@/infrastructure/ui/components'
-
-const montserrat = Montserrat({ subsets: ['latin'] })
+import { HOCCtr } from '@/infrastructure/ui/components'
+import { ProviderRedux, StyledComponentsRegistry } from '@/infrastructure/ui/lib'
+import { themeMUI } from '@/infrastructure/ui/styles/Theme'
 
 export const metadata: Metadata = {
     title: 'Hugo Andres Diaz Bernal´s Portfolio',
@@ -19,11 +19,13 @@ export interface IRootLayout {
 
 const RootLayout: FC<IRootLayout> = ({ children }) => {
     return (
-        <html lang="en">
-            <body className={montserrat.className}>
-                <FullCtr>{children}</FullCtr>
-            </body>
-        </html>
+        <ProviderRedux>
+            <StyledComponentsRegistry>
+                <ThemeProvider theme={themeMUI}>
+                    <HOCCtr>{children}</HOCCtr>
+                </ThemeProvider>
+            </StyledComponentsRegistry>
+        </ProviderRedux>
     )
 }
 
